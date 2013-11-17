@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/11/2013 12:12:38 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="prueba.GrupoDia" table="grupo_dia" catalog="mydb">
+        <composite-id name="id" class="prueba.GrupoDiaId">
+            <key-property name="diaIdDia" type="int">
+                <column name="DIA_idDia" />
+            </key-property>
+            <key-property name="grupoIdGrupo" type="int">
+                <column name="GRUPO_idGrupo" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="grupo" class="prueba.Grupo" update="false" insert="false" fetch="select">
+            <column name="GRUPO_idGrupo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="dia" class="prueba.Dia" update="false" insert="false" fetch="select">
+            <column name="DIA_idDia" not-null="true" />
+        </many-to-one>
+        <property name="descripcionGrupoDia" type="string">
+            <column name="descripcionGrupoDia" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <ui:composition template="./Template.xhtml">
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+
+                <center> 
+                    <div id="titulo1" class="titulo1" style=" -moz-background-origin: ">
+                        <ui:insert name="titulo1">Registrar Resolucion Directoral</ui:insert>
+                    </div>
+            
+                </center> 
+  <center> 
+                <h:dataTable value="#{filmController.filmTitles}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Año de Inicio"/>
+                        </f:facet>
+                        <h:outputText value="#{item.anioInicio}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Año de Termino"/>
+                        </f:facet>
+                        <h:outputText value="#{item.anioTermino}"/>
+                    </h:column>
+                      <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Fecha de Registro"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fecRegistro}"/>
+                    </h:column>
+
+                </h:dataTable>
+        </center> 
+                <br/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+
+</html>
+
