@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"     
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Buscar Alumno</title>
+    </h:head>
+    
+    <h:body>
+       <h:form id="form">  
+           
+           <p:dataTable var="alumno" value="#{controlBuscarAlumno.alumnos}"
+ filteredValue="#{controlBuscarAlumno.alumnosFiltrados}" widgetVar="tablaAlumnos"
+selectionMode="single"
+selection="#{controlBuscarAlumno.alumnoSeleccionado}" rowKey="#{alumno.dni}" scrollable="true" scrollHeight="150"> 
+         
+               
+<f:facet name="header">
+<p:outputPanel>
+<h:outputText value="Buscar Alumnos" />
+</p:outputPanel>
+</f:facet>
+    
+    
+<p:column  filterBy="#{alumno.dni}" headerText="Dni" filterMatchMode="contains">
+<h:outputText value="#{alumno.dni}" />
+</p:column>
+    
+<p:column filterBy="#{alumno.apePaterno}" headerText="Apellido paterno" filterMatchMode="contains">
+<h:outputText value="#{alumno.apePaterno}" />
+</p:column>
+    
+<p:column filterBy="#{alumno.apeMaterno}" headerText="Apellido materno" filterMatchMode="contains">
+<h:outputText value="#{alumno.apeMaterno}" />
+</p:column>               
+               
+               
+<p:column  filterBy="#{alumno.nombres}" headerText="Nombres" filterMatchMode="contains">
+<h:outputText value="#{alumno.nombres}" />
+</p:column>
+        
+  <f:facet name="footer">  
+            <p:commandButton id="botonConsultar" value="Consultar" icon="ui-icon-search"  
+                    update=":form:display" oncomplete="carDialog.show()"/>  
+        
+               
+                <p:commandButton id="botonAceptar" value="Aceptar" icon="ui-icon-search"  
+                    update=":form:display" oncomplete="carDialog.show()"/>  
+        </f:facet>  
+  </p:dataTable>  
+                      
+    <p:dialog header="Datos del alumno" widgetVar="carDialog" resizable="false"  
+              width="600" showEffect="explode" hideEffect="explode">  
+      
+        <h:panelGrid id="display" columns="2" cellpadding="4" >  
+            <h:outputText value="Dni: " />  
+            <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.dni}" id="dni"/>
+            
+            <h:outputText value="Apellido paterno: " />  
+            <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.apePaterno}" id="apePaterno"/> 
+            
+            <h:outputText value="Apallido materno: " />  
+            <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.apeMaterno}" id="apeMaterno"/> 
+            
+            <h:outputText value="Nombres: " />  
+            <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.nombres}" id="nombres"/> 
+            
+            <h:outputText value="Número fijo: " />  
+            <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.numFijo}" id="numFijo"/> 
+            
+            <h:outputText value="Número móvil: " />  
+            <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.numMovil}" id="numMovil"/> 
+            
+            <h:outputText value="Domicilio: " />  
+            <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.domicilio}" id="domicilio"/> 
+            
+            <h:outputText value="Email " />  
+            <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.email}" id="email"/> 
+            
+            <h:outputText value="Provincia: " />  
+            <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.provincia}" id="provincia"/> 
+            
+            <h:outputText value="Región: " />  
+            <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.region}" id="region"/>             
+        
+        <h:outputText value="Fecha de nacimiento: " />  
+        <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.fecNacimiento}" id="fecNacimiento"/> 
+        
+        <h:outputText value="Edad: " />  
+        <h:outputText value="#{controlBuscarAlumno.alumnoSeleccionado.edad}" id="edad"/> 
+
+             </h:panelGrid> 
+         </p:dialog>  
+</h:form>  
+             
+    </h:body>
+</html>

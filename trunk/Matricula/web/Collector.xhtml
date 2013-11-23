@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+    </h:head>
+    <h:body>
+       <h:form id="form">  
+  
+         
+  <p:growl id="msgs" />  
+
+    <p:panel header="Create a new book">  
+        <h:panelGrid columns="2" id="grid">  
+            
+     
+            <h:outputLabel value="Title : *" for="txt_title"></h:outputLabel>  
+            <p:inputText id="txt_title"   
+                            value="#{createBookBean.book.title}" required="true"/>  
+              
+            <h:outputLabel value="Author : *" for="txt_author"></h:outputLabel>  
+            <p:inputText id="txt_author" required="true"   
+                            value="#{createBookBean.book.num}" />  
+
+            
+            <p:commandButton value="Reset" type="reset"/>                          
+            <p:commandButton value="Add" action="#{createBookBean.createNew}" update="books msgs @parent" >            
+            <p:collector value="#{createBookBean.book}" addTo="#{createBookBean.books}" />
+            </p:commandButton> 
+            
+             <p:commandButton value="Reset" type="reset"/>                          
+            <p:commandButton value="otri" action="#{createBookBean.agregarotro()}" update="books msgs @parent" >            
+            </p:commandButton> 
+            
+        </h:panelGrid>  
+   
+    
+    </p:panel>        
+    <p:outputPanel id="books">  
+        <p:dataTable id="booksTable" value="#{createBookBean.books}" var="bookp">  
+  
+            <p:column>  
+                <f:facet name="header">  
+                    <h:outputText value="Title" />  
+                </f:facet>  
+                <h:outputText value="#{bookp.title}" />  
+            </p:column>  
+  
+            <p:column>  
+                <f:facet name="header">  
+                    <h:outputText value="Author" />  
+                </f:facet>  
+                <h:outputText value="#{bookp.num}" />  
+            </p:column>  
+  
+            <p:column>  
+                <f:facet name="header">  
+                    <h:outputText value="Operation" />  
+                </f:facet>  
+                
+                
+                <p:commandLink value="Remove">
+                  <p value="#{bookp}" removeFrom="#{createBookBean.books}"/>
+                </p:commandLink>
+            
+                
+            </p:column>  
+  
+        </p:dataTable>  
+    </p:outputPanel>    
+</h:form>  
+               
+   </h:body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./Template.xhtml">
+       <ui:define name="body">
+           <h:form styleClass="jsfcrud_list_form">
+                           #{resolucionDirectoralControl.prepararAdicionarResolucion()}
+               <center> 
+                   <div id="titulo1" class="titulo1" style=" -moz-background-origin: ">
+                       <ui:insert name="titulo1">Registrar Resolucion Directoral</ui:insert>
+                   </div>
+               </center> 
+
+               <h:form>
+                   <center> 
+                       <h:panelGrid columns="4" cellpadding="25">
+                           <h:outputLabel for="nrord" value="Ingrese Nro de Resolucion Directoral:" style="font-weight:bold"/>
+                           <p:inputText id="nrord" value="#{resolucionDirectoralControl.resoluciond.idRd}" />
+
+                           <h:outputLabel for="anioinicio1" value="Año de Inicio:" style="font-weight:bold"/>
+                           <p:inputText id="anioinicio1" value="#{resolucionDirectoralControl.resoluciond.anioInicio}" size="8"/>
+
+                           <h:outputLabel for="aniofin1" value="Año de Termino" style="font-weight:bold"/>
+                           <p:inputText id="aniofin1" value="#{resolucionDirectoralControl.resoluciond.anioTermino}" size="8"/>
+
+                                         
+                           
+                           
+                           <p:calendar value="#{resolucionDirectoralControl.resoluciond.fecRegistro}" id="popupButtonCal2" showOn="button" size="10"/>
+                           <p:dialog header="Selected Dates" widgetVar="dialog" 
+                                     showEffect="fade" hideEffect="fade">
+
+                               <h:panelGrid id="display1" columns="2" cellpadding="5">
+                                   <h:outputText value="Fecha " />
+                                   <h:outputText value="#{resolucionDirectoralControl.resoluciond.fecRegistro}" id="popupButtonDate2">
+                                       <f:convertDateTime pattern="d/M/yyyy"/>
+                                   </h:outputText>
+                               </h:panelGrid>
+                           </p:dialog>
+                       </h:panelGrid>
+                   </center> 
+               </h:form>
+
+               <center> 
+                   <h:form id="date">
+
+
+
+
+                   </h:form>
+
+
+                   <p:commandButton value="Registrar Resolucion" id="submit"  action="#{resolucionDirectoralControl.adicionarResolucion()}" />  
+               </center> 
+
+
+            </h:form>
+       </ui:define>
+   </ui:composition>
+
+    </h:body>
+</html>
+

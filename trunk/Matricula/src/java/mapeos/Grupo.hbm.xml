@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/11/2013 12:12:38 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="mydb" name="modelo.Grupo" table="grupo">
+    <id name="idGrupo" type="int">
+      <column name="idGrupo"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="modelo.Profesor" fetch="select" name="profesor">
+      <column name="PROFESOR_codProfesor" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="modelo.Turno" fetch="select" name="turno">
+      <column name="TURNO_idTurno" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="modelo.CurriculaAnual" fetch="select" name="curriculaAnual">
+      <column length="45" name="CURRICULA_ANUAL_idCurriculaAnual" not-null="true"/>
+    </many-to-one>
+    <property name="fecInicio" type="date">
+      <column length="10" name="fecInicio"/>
+    </property>
+    <property name="fecTermino" type="date">
+      <column length="10" name="fecTermino"/>
+    </property>
+    <property name="numMatriculados" type="string">
+      <column length="45" name="numMatriculados"/>
+    </property>
+    <property name="cantMaximaAlumno" type="java.lang.Integer">
+      <column name="cantMaximaAlumno"/>
+    </property>
+    <set inverse="true" name="grupoDias">
+      <key>
+        <column name="GRUPO_idGrupo" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.GrupoDia"/>
+    </set>
+    <set inverse="true" name="matriculas">
+      <key>
+        <column name="GRUPO_idGrupo" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.Matricula"/>
+    </set>
+  </class>
+</hibernate-mapping>

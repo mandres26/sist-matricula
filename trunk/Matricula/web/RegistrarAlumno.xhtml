@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+     
+    
+    
+    
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+    
+    
+<h:form id="form">  
+    <p:panel header="Registrar Alumno"  id="panel">  
+        <h:panelGrid columns="1" cellpadding="0">  
+          #{alumnoControl.prepararAdicionarAlumno()}
+            <h:outputLabel value="Código :" for="codigo" />  
+            <p:inputText id="codigo" value="#{alumnoControl.alumno.idAlumno}"/>    
+            
+            <h:outputLabel value="Nombres :" for="nombres" />  
+            <p:inputText id="nombres" value="#{alumnoControl.alumno.nombres}"/>
+            
+            <h:outputLabel value="Apellido paterno :" for="apePaterno" />  
+            <p:inputText id="apePaterno" value="#{alumnoControl.alumno.apePaterno}"/>
+            
+            <h:outputLabel value="Apellido materno :" for="apeMaterno" />  
+            <p:inputText id="apeMaterno" value="#{alumnoControl.alumno.apeMaterno}"/>                                   
+               <p:calendar value="#{alumnoControl.alumno.fecNacimiento}" id="popupButtonCal2" showOn="button" size="10"/>
+               <p:dialog header="Selected Dates" widgetVar="dialog" showEffect="fade" hideEffect="fade">
+                   <h:panelGrid id="display1" columns="2" cellpadding="5">
+                       <h:outputLabel value="Fecha de nacimiento :" for="popupButtonDate2" />  
+                       <h:outputText value="#{alumnoControl.alumno.fecNacimiento}" id="popupButtonDate2">
+                           <f:convertDateTime pattern="d/M/yyyy"/>
+                       </h:outputText>                                    
+                   </h:panelGrid>
+               </p:dialog>
+             
+            
+           
+            
+            
+            
+            
+            
+            
+          
+            
+             
+            <h:outputLabel value="Sexo :" for="sexo" />  
+            <p:inputText id="sexo" value="#{alumnoControl.alumno.sexo}"/>
+            
+            <h:outputLabel value="Dni :" for="dni" />  
+            <p:inputText id="dni" value="#{alumnoControl.alumno.dni}"/>
+            
+            <h:outputLabel value="Email :" for="email" />  
+            <p:inputText id="email" value="#{alumnoControl.alumno.email}"/>
+            
+            <h:outputLabel value="Edad :" for="edad" />  
+            <p:inputText id="edad" value="#{alumnoControl.alumno.edad}"/>
+            
+            <h:outputLabel value="Número fijo :" for="numFijo" />  
+            <p:inputText id="numFijo" value="#{alumnoControl.alumno.numFijo}"/>
+            
+            <h:outputLabel value="Número móvil :" for="numMovil" />  
+            <p:inputText id="numMovil" value="#{alumnoControl.alumno.numMovil}"/>
+            
+            <h:outputLabel value="Domicilio :" for="domicilio" />  
+            <p:inputText id="domicilio" value="#{alumnoControl.alumno.domicilio}"/>
+            
+            <h:outputLabel value="Provincia :" for="provincia" />  
+            <p:inputText id="provincia" value="#{alumnoControl.alumno.provincia}"/>
+            
+            <h:outputLabel value="Región :" for="region" />  
+            <p:inputText id="region" value="#{alumnoControl.alumno.region}"/>
+            
+            
+         
+        </h:panelGrid>  
+    </p:panel>  
+      
+    <p:commandButton value="Registrar Alumno" id="submit"  action="#{alumnoControl.adicionarAlumno}" />  
+      
+   
+</h:form>              
+       
+        <f:view>
+            <h:form>
+                <h:dataTable >
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+        
+        
+    </h:body>
+</html>
+
+
