@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/11/2013 12:12:38 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="mydb" name="modelo.ResolucionDirectoral" table="resolucion_directoral">
+    <id name="idRd" type="int">
+      <column name="idRD"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="anioInicio" type="java.lang.Integer">
+      <column name="anioInicio"/>
+    </property>
+    <property name="anioTermino" type="java.lang.Integer">
+      <column name="anioTermino"/>
+    </property>
+    <property name="fecRegistro" type="date">
+      <column length="10" name="fecRegistro"/>
+    </property>
+    <set inverse="true" name="especialidads">
+      <key>
+        <column name="RESOLUCION_DIRECTORAL_numResolucionD" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.Especialidad"/>
+    </set>
+  </class>
+</hibernate-mapping>

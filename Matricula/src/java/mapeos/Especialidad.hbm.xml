@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/11/2013 12:12:38 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="mydb" name="modelo.Especialidad" table="especialidad">
+    <id name="idEspecialidad" type="int">
+      <column name="idEspecialidad"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="modelo.ResolucionDirectoral" fetch="select" name="resolucionDirectoral">
+      <column name="RESOLUCION_DIRECTORAL_numResolucionD" not-null="true"/>
+    </many-to-one>
+    <property name="nombreEspecialidad" type="string">
+      <column length="45" name="nombreEspecialidad"/>
+    </property>
+    <property name="cicloEspecialidad" type="string">
+      <column length="45" name="cicloEspecialidad"/>
+    </property>
+    <set inverse="true" name="modulos">
+      <key>
+        <column name="ESPECIALIDAD_RESOLUCION_codEspecialidad_Resolucion" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.Modulo"/>
+    </set>
+    <set inverse="true" name="curriculaAnuals">
+      <key>
+        <column name="ESPECIALIDAD_idEspecialidad" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.CurriculaAnual"/>
+    </set>
+  </class>
+</hibernate-mapping>

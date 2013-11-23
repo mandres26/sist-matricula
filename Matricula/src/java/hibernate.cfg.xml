@@ -4,25 +4,25 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mydb?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mydb</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">basemysql</property>
+    <property name="hibernate.connection.password">limdli</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
-    <mapping resource="prueba/Turno.hbm.xml"/>
-    <mapping resource="prueba/Dia.hbm.xml"/>
-    <mapping resource="prueba/Usuario.hbm.xml"/>
-    <mapping resource="prueba/Profesor.hbm.xml"/>
-    <mapping resource="prueba/Especialidad.hbm.xml"/>
-    <mapping resource="prueba/Modulo.hbm.xml"/>
-    <mapping resource="prueba/ResolucionDirectoral.hbm.xml"/>
-    <mapping resource="prueba/GrupoDia.hbm.xml"/>
-    <mapping resource="prueba/Alumno.hbm.xml"/>
-    <mapping resource="prueba/Grupo.hbm.xml"/>
-    <mapping resource="prueba/CapacidadTerminal.hbm.xml"/>
-    <mapping resource="prueba/ProgCurricular.hbm.xml"/>
-    <mapping resource="prueba/Matricula.hbm.xml"/>
-    <mapping resource="prueba/CurriculaAnual.hbm.xml"/>
+    <mapping resource="mapeos/Turno.hbm.xml"/>
+    <mapping resource="mapeos/Dia.hbm.xml"/>
+    <mapping resource="mapeos/Usuario.hbm.xml"/>
+    <mapping resource="mapeos/Profesor.hbm.xml"/>
+    <mapping resource="mapeos/Especialidad.hbm.xml"/>
+    <mapping resource="mapeos/Modulo.hbm.xml"/>
+    <mapping resource="mapeos/ResolucionDirectoral.hbm.xml"/>
+    <mapping resource="mapeos/GrupoDia.hbm.xml"/>
+    <mapping resource="mapeos/Alumno.hbm.xml"/>
+    <mapping resource="mapeos/Grupo.hbm.xml"/>
+    <mapping resource="mapeos/CapacidadTerminal.hbm.xml"/>
+    <mapping resource="mapeos/ProgCurricular.hbm.xml"/>
+    <mapping resource="mapeos/Matricula.hbm.xml"/>
+    <mapping resource="mapeos/CurriculaAnual.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

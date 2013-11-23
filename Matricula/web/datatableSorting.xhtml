@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>TODO supply a title</title>
+    </h:head>
+    <h:body>
+<h:form>  
+  
+    
+    <p:dataTable var="car" value="#{tableBean.carsSmall}">  
+        <f:facet name="header1">  
+            Ajax Sorting  
+        </f:facet>  
+  
+        <p:column sortBy="#{car.model}">  
+            <f:facet name="header2">  
+                <h:outputText value="Model" />  
+            </f:facet>  
+            <h:outputText value="#{car.model}" />  
+        </p:column>  
+  
+        <p:column sortBy="#{car.year}">  
+            <f:facet name="header3">  
+                <h:outputText value="Year" />  
+            </f:facet>  
+            <h:outputText value="#{car.year}" />  
+        </p:column>  
+  
+        <p:column sortBy="#{car.manufacturer}">  
+            <f:facet name="header4">  
+                <h:outputText value="Manufacturer" />  
+            </f:facet>  
+            <h:outputText value="#{car.manufacturer}" />  
+        </p:column>  
+  
+        <p:column sortBy="#{car.color}">  
+            <f:facet name="header5">  
+                <h:outputText value="Color" />  
+            </f:facet>  
+            <h:outputText value="#{car.color}" />  
+        </p:column>  
+    </p:dataTable>  
+  
+</h:form>  
+
+
+
+    </h:body>
+</html>

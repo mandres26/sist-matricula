@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/11/2013 12:12:38 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="mydb" name="modelo.Alumno" table="alumno">
+    <id name="idAlumno" type="int">
+      <column name="idAlumno"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombres" type="string">
+      <column length="45" name="nombres"/>
+    </property>
+    <property name="apePaterno" type="string">
+      <column length="45" name="apePaterno"/>
+    </property>
+    <property name="apeMaterno" type="string">
+      <column length="45" name="apeMaterno"/>
+    </property>
+    <property name="fecNacimiento" type="date">
+      <column length="10" name="fecNacimiento"/>
+    </property>
+    <property name="sexo" type="java.lang.Character">
+      <column length="1" name="sexo"/>
+    </property>
+    <property name="dni" type="java.lang.Integer">
+      <column name="dni" precision="8" scale="0"/>
+    </property>
+    <property name="email" type="string">
+      <column length="45" name="email"/>
+    </property>
+    <property name="edad" type="java.lang.Integer">
+      <column name="edad"/>
+    </property>
+    <property name="numFijo" type="java.lang.Integer">
+      <column name="numFijo" precision="7" scale="0"/>
+    </property>
+    <property name="numMovil" type="java.lang.Integer">
+      <column name="numMovil" precision="8" scale="0"/>
+    </property>
+    <property name="domicilio" type="string">
+      <column length="45" name="domicilio"/>
+    </property>
+    <property name="provincia" type="string">
+      <column length="45" name="provincia"/>
+    </property>
+    <property name="region" type="string">
+      <column length="45" name="region"/>
+    </property>
+    <set inverse="true" name="matriculas">
+      <key>
+        <column name="ALUMNO_idAlumno" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.Matricula"/>
+    </set>
+  </class>
+</hibernate-mapping>

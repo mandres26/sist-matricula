@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/11/2013 12:12:38 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="mydb" name="modelo.Profesor" table="profesor">
+    <id name="idProfesor" type="int">
+      <column name="idProfesor"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombres" type="string">
+      <column length="45" name="nombres"/>
+    </property>
+    <property name="apePaterno" type="string">
+      <column length="45" name="apePaterno"/>
+    </property>
+    <property name="apeMaterno" type="string">
+      <column length="45" name="apeMaterno"/>
+    </property>
+    <property name="fecNacimiento" type="date">
+      <column length="10" name="fecNacimiento"/>
+    </property>
+    <property name="sexo" type="java.lang.Character">
+      <column length="1" name="sexo"/>
+    </property>
+    <property name="dni" type="java.lang.Integer">
+      <column name="dni" precision="8" scale="0"/>
+    </property>
+    <property name="email" type="string">
+      <column length="45" name="email"/>
+    </property>
+    <property name="edad" type="string">
+      <column length="45" name="edad"/>
+    </property>
+    <property name="numFijo" type="string">
+      <column length="45" name="numFijo"/>
+    </property>
+    <property name="numMovil" type="string">
+      <column length="45" name="numMovil"/>
+    </property>
+    <property name="domicilio" type="string">
+      <column length="45" name="domicilio"/>
+    </property>
+    <property name="gradEstudios" type="string">
+      <column length="45" name="gradEstudios"/>
+    </property>
+    <set inverse="true" name="grupos">
+      <key>
+        <column name="PROFESOR_codProfesor" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.Grupo"/>
+    </set>
+  </class>
+</hibernate-mapping>

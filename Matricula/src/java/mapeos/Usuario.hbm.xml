@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/11/2013 12:12:38 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="mydb" name="modelo.Usuario" table="usuario">
+    <id name="idUsuario" type="int">
+      <column name="idUsuario"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombreUsuario" type="string">
+      <column length="45" name="nombreUsuario"/>
+    </property>
+    <property name="contraseniaUsuario" type="string">
+      <column length="45" name="contraseniaUsuario"/>
+    </property>
+    <property name="fechaIngreso" type="date">
+      <column length="10" name="fechaIngreso"/>
+    </property>
+    <property name="numIngFallidos" type="string">
+      <column length="45" name="numIngFallidos"/>
+    </property>
+  </class>
+</hibernate-mapping>

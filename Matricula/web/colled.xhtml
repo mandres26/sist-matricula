@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">  
+  
+            <p:growl id="msgs" showDetail="true"/>  
+
+    <p:panel header="Create a new book">  
+        <h:panelGrid columns="2" id="grid">  
+            
+     
+            <h:outputLabel value="Title : *" for="txt_title"></h:outputLabel>  
+            <p:inputText id="txt_title"   
+                            value="#{colledBean.book.title}" required="true"/>  
+            
+            
+            <p:commandButton value="Reset" type="reset"/>                          
+            <p:commandButton value="Add" action="#{colledBean.createNew}" update="carList msgs @parent" >            
+            <p:collector value="#{colledBean.book}" addTo="#{colledBean.books}" />
+            </p:commandButton> 
+            
+            </h:panelGrid>
+    </p:panel>
+            
+            
+    <p:growl id="messages" showDetail="true"/>  
+  
+    <p:dataTable var="book" value="#{colledBean.books}" id="carList" editable="true">  
+        
+        <f:facet name="header">
+            In-Cell Editind
+        </f:facet>
+  
+        <p:ajax event="rowEdit" listener="#{colledBean.onEdit}" update=":form:messages"/>  
+        <p:ajax event="rowEditCancel"  listener="#{colledBean.onCanel}" update=":form:messages" />  
+    
+        <p:column headerText="Model" style="width:30%">  
+            
+            <p:cellEditor>  
+                <f:facet name="output">  
+                   
+                    <h:outputText value="#{book.title}" />  
+                   
+                </f:facet>  
+                
+                <f:facet name="input">  
+                   
+                        <p:inputText value="#{book.title}" style="width:100%"/>  
+                   
+                </f:facet>  
+            </p:cellEditor>  
+        
+        </p:column>        
+  
+        <p:column style="width:15%">  
+            <p:rowEditor/>  
+        </p:column>  
+  
+    </p:dataTable>  
+  
+</h:form> 
+    </h:body>
+</html>
